@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package order;
+
+service OrderService {
+    rpc getOrders_RPC_Function (GenericStringRequest) returns (GenericStringResponse);
+    rpc deleteOrders_RPC_Function (GenericStringRequest) returns (GenericStringResponse);
+    rpc updateOrder_RPC_Function (GenericStringRequest) returns (GenericStringResponse);
+    rpc addOrders_RPC_Function (GenericStringRequest) returns (GenericStringResponse);
+}
+message GenericStringRequest {
+  string data = 1;
+}
+
+message GenericStringResponse {
+  string data = 1;
+}

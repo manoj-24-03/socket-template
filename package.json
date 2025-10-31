@@ -1,0 +1,56 @@
+{
+  "name": "socket-bff-template",
+  "version": "0.1.0",
+  "description": "Socket Backend-For-Frontend (BFF) template that proxies events to microservices",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc && tsc-alias && npm run copy:proto",
+    "dev": "tsx watch src/index.ts",
+    "start": "node build/index.js",
+    "copy:proto": "cpx \"src/protos/**/*\" build/protos",
+    "postbuild": "echo build completed successfully!",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "type:check": "tsc --noEmit",
+    "all:fix": "npm run lint:fix && npm run format && npm run type:check",
+    "check:all": "npm run format:check && echo '✅ Format check passed' && npm run lint && echo '✅ Lint passed' && npm run type:check && echo '✅ Type check passed' && echo '🎉 All checks passed!'",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "socket",
+    "bff",
+    "socket.io",
+    "microservice"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.0",
+    "amqplib": "^0.10.9",
+    "axios": "^1.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "tsx": "^4.20.6",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.8",
+    "@types/jsonwebtoken": "^9.0.4",
+    "@types/node": "^22.7.4",
+    "cpx": "^1.5.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.46.2"
+  }
+}
