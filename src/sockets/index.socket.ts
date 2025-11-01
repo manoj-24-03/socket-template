@@ -14,7 +14,7 @@ export const setupSocketServer = (
     console.log(`Client connected: ${socket.id}`);
 
     handleOrderSocket(socket);
-    
+
     socket.on('disconnect', () => {
       console.log(`Client disconnected: ${socket.id}`);
     });

@@ -7,7 +7,7 @@
     "build": "tsc && tsc-alias && npm run copy:proto",
     "dev": "tsx watch src/index.ts",
     "start": "node build/index.js",
-    "copy:proto": "cpx \"src/protos/**/*\" build/protos",
+    "copy:proto": "cpx \"src/grpc/protos/**/*\" build/grpc/protos",
     "postbuild": "echo build completed successfully!",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
